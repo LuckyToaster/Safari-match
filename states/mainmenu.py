@@ -1,4 +1,4 @@
-import pygame
+import pygame as pg
 from .base import BaseState
 
 class MainMenu(BaseState):
@@ -9,7 +9,7 @@ class MainMenu(BaseState):
         self.next_state = "GAME_PLAY"
 
     def render_text(self, index):
-        color = pygame.Color("red") if index == self.active_index else pygame.Color("white")
+        color = pg.Color("red") if index == self.active_index else pg.Color("white")
         return self.font.render(self.options[index], True, color)
 
     def get_text_position(self, text, index):
@@ -25,14 +25,14 @@ class MainMenu(BaseState):
            #self.done = True
 
     def get_event(self, event):
-        if event.type == pygame.QUIT:
+        if event.type == pg.QUIT:
             self.quit = True
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_UP:
+        elif event.type == pg.KEYUP:
+            if event.key == pg.K_UP:
                 self.active_index = 1 if self.active_index <= 0 else 0
-            elif event.key == pygame.K_DOWN:
+            elif event.key == pg.K_DOWN:
                 self.active_index = 0 if self.active_index >= 1 else 1
-            elif event.key == pygame.K_RETURN:
+            elif event.key == pg.K_RETURN:
                 self.handle_action()
 
 #    def get_event(self, event):
@@ -47,7 +47,7 @@ class MainMenu(BaseState):
 #                self.handle_action()
 
     def draw(self, surface):
-        surface.fill(pygame.Color("black"))
+        surface.fill(pg.Color("black"))
         for index, option in enumerate(self.options):
             text_render = self.render_text(index)
             surface.blit(text_render, self.get_text_position(text_render, index))

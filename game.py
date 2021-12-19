@@ -1,17 +1,17 @@
-import pygame
+import pygame as pg
 
 class Game(object):
     def __init__(self, screen, states, start_state):
         self.done = False
         self.screen = screen
-        self.clock = pygame.time.Clock()
+        self.clock = pg.time.Clock()
         self.fps = 60
         self.states = states
         self.state_name = start_state
         self.state = self.states[self.state_name]
 
     def event_loop(self):
-        for event in pygame.event.get():
+        for event in pg.event.get():
             self.state.get_event(event)
 
     def flip_state(self):
@@ -39,4 +39,4 @@ class Game(object):
             self.event_loop()
             self.update(dt)
             self.draw()
-            pygame.display.update()
+            pg.display.update()
