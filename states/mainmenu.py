@@ -7,9 +7,10 @@ class MainMenu(BaseState):
         self.active_index = 0
         self.options = ["Play", "Exit"]
         self.next_state = "GAME_PLAY"
+        self.click = False
 
     def render_text(self, index):
-        color = pg.Color("red") if index == self.active_index else pg.Color("white")
+        color = self.colors["ORANGE"] if index == self.active_index else pg.Color("white")
         return self.font.render(self.options[index], True, color)
 
     def get_text_position(self, text, index):
@@ -21,10 +22,9 @@ class MainMenu(BaseState):
             self.done = True
         elif self.active_index == 1:
            self.quit = True
-           #self.next_state = "START_SCREEN"
-           #self.done = True
 
     def get_event(self, event):
+        # the keyboard aspect
         if event.type == pg.QUIT:
             self.quit = True
         elif event.type == pg.KEYUP:
@@ -34,17 +34,10 @@ class MainMenu(BaseState):
                 self.active_index = 0 if self.active_index >= 1 else 1
             elif event.key == pg.K_RETURN:
                 self.handle_action()
-
-#    def get_event(self, event):
-#        if event.type == pygame.QUIT:
-#            self.quit = True
-#        elif event.type == pygame.KEYUP:
-#            if event.key == pygame.K_UP:
-#                self.active_index -= 1 if self.active_index > 0 else self.options.size() -1
-#            elif event.key == pygame.K_DOWN:
-#                self.active_index += 1 if self.active_index < self.options.size() else 0
-#            elif event.key == pygame.K_RETURN:
-#                self.handle_action()
+        # the mouse aspect ---> should add this funcionality
+        elif event.type == pg.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.click == True
 
     def draw(self, surface):
         surface.fill(pg.Color("black"))
