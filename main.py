@@ -1,10 +1,10 @@
 import sys, pygame as pg
-from mystates.base import BaseState
-from mystates.startscreen import StartScreen
-from mystates.mainmenu import MainMenu
-from mystates.gameplay import GamePlay
-from mystates.gameover import GameOver
-from mygame import Game
+from states.base import BaseState
+from states.startscreen import StartScreen
+from states.mainmenu import MainMenu
+from states.gameplay import GamePlay
+from states.gameover import GameOver
+from game import Game
 
 pg.init()
 screen = pg.display.set_mode((1920,1080))
