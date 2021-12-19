@@ -34,6 +34,8 @@ class MainMenu(BaseState):
                 self.active_index = 0 if self.active_index >= 1 else 1
             elif event.key == pg.K_RETURN:
                 self.handle_action()
+            elif event.key == pg.K_ESCAPE:
+                self.quit = True
         # the mouse aspect ---> should add this funcionality
         elif event.type == pg.MOUSEBUTTONDOWN:
             if event.button == 1:
