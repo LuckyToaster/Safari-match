@@ -3,7 +3,7 @@ from states.base import BaseState
 from states.startscreen import StartScreen
 from states.mainmenu import MainMenu
 from states.gameplay import GamePlay
-from states.gameover import GameOver
+from states.pausemenu import PauseMenu
 from game import Game
 
 # initialize pygame
@@ -15,13 +15,15 @@ screen_h = pg.display.Info().current_h
 
 # set up display
 screen = pg.display.set_mode((screen_w,screen_h))
+pg.display.set_caption("Safari Match!")
+pg.display.set_icon(pg.image.load("assets/sprites/logo.png"))
 
 # the game states
 states = {
     "START_SCREEN": StartScreen(),
     "MAIN_MENU": MainMenu(),
     "GAME_PLAY": GamePlay(),
-    "GAME_OVER": GameOver()
+    "PAUSE_MENU": PauseMenu()
 }
 
 # Run the game (the state machine)

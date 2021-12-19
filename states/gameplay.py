@@ -6,7 +6,7 @@ class GamePlay(BaseState):
         super(GamePlay, self).__init__()
         self.rect = pg.Rect((0, 0), (80, 80))
         self.rect.center = self.screen_rect.center
-        self.next_state = "GAME_OVER"
+        self.next_state = "PAUSE_MENU"
 
     def get_event(self, event):
         if event.type == pg.QUIT:
