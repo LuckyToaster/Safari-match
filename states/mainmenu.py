@@ -5,7 +5,7 @@ class MainMenu(BaseState):
     def __init__(self):
         super(MainMenu, self).__init__()
         self.active_index = 0
-        self.options = ["Safari", "Go Back"]
+        self.options = ["Play", "Exit"]
         self.next_state = "GAME_PLAY"
 
     def render_text(self, index):

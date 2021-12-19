@@ -6,8 +6,17 @@ from states.gameplay import GamePlay
 from states.gameover import GameOver
 from game import Game
 
+# initialize pygame
 pg.init()
-screen = pg.display.set_mode((1920,1080))
+
+# get resolution
+screen_w = pg.display.Info().current_w
+screen_h = pg.display.Info().current_h
+
+# set up display
+screen = pg.display.set_mode((screen_w,screen_h))
+
+# the game states
 states = {
     "START_SCREEN": StartScreen(),
     "MAIN_MENU": MainMenu(),
@@ -15,9 +24,10 @@ states = {
     "GAME_OVER": GameOver()
 }
 
+# Run the game (the state machine)
 game = Game(screen, states, "START_SCREEN")
-game.run()
+game.run() 
 
-pg.quit
+pg.quit()
 sys.exit()
 
