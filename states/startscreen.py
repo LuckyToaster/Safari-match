@@ -1,6 +1,7 @@
 import random, pygame as pg
 from .base import BaseState 
 
+
 class StartScreen(BaseState):
     def __init__(self):
         super(StartScreen, self).__init__()

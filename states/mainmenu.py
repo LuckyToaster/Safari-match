@@ -1,6 +1,6 @@
 import random, pygame as pg
-from pygame.constants import MOUSEBUTTONUP
-from .base import BaseState
+from pygame.locals import *
+from .base import BaseState, Dimmer
 
 class MainMenu(BaseState):
     def __init__(self):
@@ -26,23 +26,20 @@ class MainMenu(BaseState):
            self.quit = True
 
     def get_event(self, event):
-        if event.type == pg.QUIT:
+        if event.type == QUIT:
             self.quit = True
-        elif event.type == pg.KEYUP:
-            if event.key == pg.K_UP:
+        elif event.type == KEYUP:
+            if event.key == K_UP:
                 self.active_index = 1 if self.active_index <= 0 else 0
-            elif event.key == pg.K_DOWN:
+            elif event.key == K_DOWN:
                 self.active_index = 0 if self.active_index >= 1 else 1
-            elif event.key == pg.K_RETURN:
+            elif event.key == K_RETURN:
                 self.handle_action()
-            elif event.key == pg.K_ESCAPE:
+            elif event.key == K_ESCAPE:
                 self.quit = True
 
-
     def draw(self, surface):
-        # draw the background
         surface.blit(self.get_rand_bg(), (0,0)) 
-        # draw the options
         for index, option in enumerate(self.options):
             text_render = self.render_options(index)
             surface.blit(text_render, self.get_text_position(text_render, index))

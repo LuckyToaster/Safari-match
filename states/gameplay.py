@@ -1,6 +1,6 @@
 import pygame as pg
 from pygame.locals import *
-from .base import BaseState
+from .base import BaseState, Dimmer
 
 class GamePlay(BaseState):
     def __init__(self):

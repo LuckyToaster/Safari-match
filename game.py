@@ -1,4 +1,5 @@
 import pygame as pg
+from states.base import Dimmer
 
 class Game(object):
     def __init__(self, screen, states, start_state):
@@ -40,3 +41,4 @@ class Game(object):
             self.update(dt)
             self.draw()
             pg.display.update()
+
