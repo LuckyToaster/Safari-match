@@ -30,7 +30,7 @@ class PauseMenu(BaseState):
                 self.done = True
 
     def draw(self, surface):
-        self.dim.dim(10,(10,10,10))
+        self.dim.dim(20,(10,10,10))
         surface.blit(self.title, self.title_rect)
         surface.blit(self.instructions1,self.instructions1_rect)
         surface.blit(self.instructions2, self.instructions2_rect)
