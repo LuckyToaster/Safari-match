@@ -24,5 +24,5 @@ class GamePlay(BaseState):
                 self.done = True
 
     def draw(self, surface):
-        surface.fill(pg.Color("black"))
+        surface.blit(self.get_ran_bg(),(0,0))
         pg.draw.rect(surface, pg.Color("blue"), self.rect)

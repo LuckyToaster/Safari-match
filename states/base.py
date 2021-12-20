@@ -8,15 +8,15 @@ class BaseState(object):
         self.next_state = None
         self.screen_rect = pg.display.get_surface().get_rect()
         self.persist = {}
-        self.font = pg.font.Font("assets/fonts/KarmaFuture.ttf", 50) 
+        self.font = pg.font.Font("assets/fonts/Upheavtt.ttf", 30) 
         # things I've added
         self.screen_w = pg.display.Info().current_w
         self.screen_h = pg.display.Info().current_h
         self.backgrounds = os.listdir("./assets/backgrounds")
         self.colors = {
-            #"CYAN": (172,238,243),
-            #"CORAL": (255,112,119),
-            #"ROSE": (255,233,228),
+            "CYAN": (172,238,243),
+            "CORAL": (255,112,119),
+            "ROSE": (255,233,228),
             "ORANGE": (255,176,103),
             "OLIVE_GREEN": (61,85,12),
             "LIME_GREEN": (129,182,34),

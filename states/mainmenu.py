@@ -10,8 +10,12 @@ class MainMenu(BaseState):
         self.click = False
 
     def render_options(self, index):
-        color = self.rand_color if index == self.active_index else pg.Color("white")
-        return self.render_text(self.options[index], "SuperMario256.ttf", 50, color)
+        if index == self.active_index:
+            color = pg.Color("orange")
+            return self.render_text(self.options[index], "StarBorn.ttf", 50, color)
+        else: 
+            color = pg.Color("white")
+            return self.render_text(self.options[index], "StarBorn.ttf", 40, color)
 
     def get_text_position(self, text, index):
         center = (self.screen_rect.center[0], self.screen_rect.center[1] + (index * 50))

@@ -6,7 +6,7 @@ class StartScreen(BaseState):
         super(StartScreen, self).__init__()
         self.next_state = "MAIN_MENU"
         self.time_active = 0
-        self.title = self.render_text("Safari Match!", "SuperMario256.ttf", 80, self.rand_color) 
+        self.title = self.render_text("Safari Match!", "StarBorn.ttf", 80, pg.Color("white")) 
         self.title_rect = self.title.get_rect(center=self.screen_rect.center)
 
     def update(self, dt):
