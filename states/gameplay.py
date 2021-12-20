@@ -21,7 +21,7 @@ class GamePlay(BaseState):
                 self.rect.move_ip(-10, 0)
             if event.key == K_RIGHT:
                 self.rect.move_ip(10, 0)
-            if event.key == K_SPACE or K_ESCAPE:
+            if event.key == K_SPACE or event.key == K_ESCAPE:
                 self.done = True
 
     def draw(self, surface):

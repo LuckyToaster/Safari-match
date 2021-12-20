@@ -8,7 +8,7 @@ class BaseState(object):
         self.next_state = None
         self.screen_rect = pg.display.get_surface().get_rect()
         self.persist = {}
-        self.font = pg.font.Font("assets/fonts/Upheavtt.ttf", 30) # default font and font size
+        self.font = pg.font.Font("assets/fonts/RetroGaming.ttf", 30) # default font and font size
         self.backgrounds = os.listdir("./assets/backgrounds")
         self.screen_w = pg.display.Info().current_w
         self.screen_h = pg.display.Info().current_h
