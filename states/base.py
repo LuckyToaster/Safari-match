@@ -8,7 +8,7 @@ class BaseState(object):
         self.next_state = None
         self.screen_rect = pg.display.get_surface().get_rect()
         self.persist = {}
-        self.font = pg.font.Font("assets/KarmaFuture.ttf", 40)
+        self.font = pg.font.Font("assets/fonts/KarmaFuture.ttf", 40)
         # things I've added
         #self.title = "Safari Match!"
 
