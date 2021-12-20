@@ -1,4 +1,5 @@
 import pygame as pg
+from pygame.locals import *
 from .base import BaseState
 
 class GamePlay(BaseState):
@@ -11,18 +12,18 @@ class GamePlay(BaseState):
     def get_event(self, event):
         if event.type == pg.QUIT:
             self.quit = True
-        elif event.type == pg.KEYUP:
-            if event.key == pg.K_UP:
+        elif event.type == KEYUP:
+            if event.key == K_UP:
                 self.rect.move_ip(0, -10)
-            if event.key == pg.K_DOWN:
+            if event.key == K_DOWN:
                 self.rect.move_ip(0, 10)
-            if event.key == pg.K_LEFT:
+            if event.key == K_LEFT:
                 self.rect.move_ip(-10, 0)
-            if event.key == pg.K_RIGHT:
+            if event.key == K_RIGHT:
                 self.rect.move_ip(10, 0)
-            if event.key == pg.K_SPACE:
+            if event.key == K_SPACE or K_ESCAPE:
                 self.done = True
 
     def draw(self, surface):
-        surface.blit(self.get_ran_bg(),(0,0))
+        surface.blit(self.get_rand_bg(),(0,0))
         pg.draw.rect(surface, pg.Color("blue"), self.rect)

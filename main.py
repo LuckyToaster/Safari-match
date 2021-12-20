@@ -17,6 +17,7 @@ screen_h = pg.display.Info().current_h
 screen = pg.display.set_mode((screen_w,screen_h))
 pg.display.set_caption("Safari Match!")
 pg.display.set_icon(pg.image.load("assets/sprites/logo.png"))
+pg.mouse.set_visible(False)
 
 # the game states
 states = {

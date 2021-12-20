@@ -15,7 +15,7 @@ class StartScreen(BaseState):
             self.done = True
 
     def draw(self, surface):
-        surface.blit(self.get_ran_bg(), (0,0))
+        surface.blit(self.get_rand_bg(), (0,0))
         surface.blit(self.title, self.title_rect)
 
 
