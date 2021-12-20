@@ -1,11 +1,12 @@
 ## SAFARI MATCH!
 ### Match animals  with their names
 
-The fonts used in the game are free fonts from the following websites:
+* The game uses a state machine design pattern, we used [Ianrufus'](https://github.com/ianrufus/youtube/tree/main/pygame-state) pygame state machine as a template.
+* The animal sprites are free icons from [flaticon](https://www.flaticon.com/)
+* The fonts used in the game are free fonts from the following websites:
     - [dafont free fonts](https://www.dafont.com/)
     - [1001 free fonts](https://www.1001freefonts.com/)
 
-The animal sprites are free icons from [flaticon](https://www.flaticon.com/)
 
 
 
