@@ -8,13 +8,10 @@ class MainMenu(BaseState):
         self.options = ["Play", "Exit"]
         self.next_state = "GAME_PLAY"
         self.click = False
-        #self.ran_bg_index = random.randrange(len(self.backgrounds)) 
-        #self.rand_color = list(self.colors.values())[random.randrange(len(self.colors))] # get a random color
 
-    def render_text(self, index):
-        #color = self.colors["ORANGE"] if index == self.active_index else pg.Color("white")
+    def render_options(self, index):
         color = self.rand_color if index == self.active_index else pg.Color("white")
-        return self.font.render(self.options[index], True, color)
+        return self.render_text(self.options[index], "SuperMario256.ttf", 50, color)
 
     def get_text_position(self, text, index):
         center = (self.screen_rect.center[0], self.screen_rect.center[1] + (index * 50))
@@ -45,11 +42,7 @@ class MainMenu(BaseState):
                 self.click == True
 
     def draw(self, surface):
-        #surface.fill(pg.Color("black"))
-        bg_img = pg.image.load("assets/backgrounds/" + self.backgrounds[self.ran_bg_index]) # get a random background
-        bg_img = pg.transform.smoothscale(bg_img,(self.screen_w,self.screen_h)) # scale it
-        surface.blit(bg_img, (0,0)) # draw background
-
+        surface.blit(self.get_ran_bg(), (0,0)) 
         for index, option in enumerate(self.options):
-            text_render = self.render_text(index)
+            text_render = self.render_options(index)
             surface.blit(text_render, self.get_text_position(text_render, index))

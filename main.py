@@ -29,7 +29,6 @@ states = {
 # Run the game (the state machine)
 game = Game(screen, states, "START_SCREEN")
 game.run() 
-
 pg.quit()
 sys.exit()
 
