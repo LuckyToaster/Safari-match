@@ -1,6 +1,6 @@
 import random, pygame as pg
 from pygame.locals import *
-from .base import BaseState, Dimmer
+from .base import BaseState, Dimmer, FPSCounter
 
 class GamePlay(BaseState):
     def __init__(self):

@@ -1,5 +1,5 @@
 import pygame as pg
-from states.base import Dimmer
+from states.base import FPSCounter
 
 class Game(object):
     def __init__(self, screen, states, start_state):
