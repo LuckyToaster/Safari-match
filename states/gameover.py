@@ -1,33 +1,27 @@
-import random, pygame as pg
+import pygame as pg
 from pygame.locals import *
 from .base import BaseState, Dimmer
 
-class MainMenu(BaseState):
+class GameOver(BaseState):
     def __init__(self):
-        super(MainMenu, self).__init__()
-        self.active_index = 0
-        self.options = ["Play", "Exit"]
+        super(GameOver, self).__init__()
+        self.title = self.render_text("Game Over", "Upheavtt.ttf", 65, Color("white"))
+        self.options = ["Retry", "Go Back"]
         self.next_state = "GAME_PLAY"
-        self.game_logo = self.render_text("Safari Match!", "Starborn.ttf", 45, Color("white"))
-        logo_position = (self.screen_rect.center[0], 100)
-        self.game_logo_rect = self.game_logo.get_rect(center=logo_position)
 
-    def render_options(self, index):
+    def render_oprtions(self, index):
         if index == self.active_index:
-            return self.render_text(self.options[index], "StarBorn.ttf", 50, Color("orange"))
+            return self.render_text(self.options[index]), "StarBorn.ttf", 50, Color("orange")
         else: 
-            return self.render_text(self.options[index], "StarBorn.ttf", 40, Color("white"))
-
-    def get_text_position(self, text, index):
-        center = (self.screen_rect.center[0], self.screen_rect.center[1] + (index * 70))
-        return text.get_rect(center=center)
-
-    def handle_action(self):
+            return self.render_text(self.options[index]), "StarBorn.ttf", 40, Color("white")
+    
+    def handle_actions(self):
         if self.active_index == 0:
             self.done = True
         elif self.active_index == 1:
-           self.quit = True
-
+            self.next_state = "MAIN_MENU"
+            self.done = True
+    
     def get_event(self, event):
         if event.type == QUIT:
             self.quit = True
@@ -40,10 +34,12 @@ class MainMenu(BaseState):
                 self.handle_action()
             elif event.key == K_ESCAPE:
                 self.quit = True
-
+    
     def draw(self, surface):
-        surface.blit(self.get_rand_bg(), (0,0)) 
-        surface.blit(self.game_logo, self.game_logo_rect)
+        surface.blit(self.get_rand_bg(),(0,0))
         for index, option in enumerate(self.options):
             text_render = self.render_options(index)
             surface.blit(text_render, self.get_text_position(text_render, index))
+
+
+

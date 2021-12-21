@@ -34,7 +34,6 @@ class GamePlay(BaseState):
         for i, index in enumerate(name_deck):
             surface.blit(card_list[index],((self.screen_rect.center[0]/2)+x, self.screen_rect.center[1]))
             x = i*128
-        surface.blit(card_list(2), (self.screen_rect.center))
     
 
     # the same index in cards and names refers to the same animal
@@ -47,7 +46,7 @@ class GamePlay(BaseState):
     # get a list with the indexes of 4 random cards
     def get_name_deck(self): 
         deck = []
-        for i in range(3): deck.append(random.randrange(len(self.names)))
+        for i in range(4): deck.append(random.randrange(len(self.names)))
         return deck
         
            

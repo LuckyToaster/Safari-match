@@ -4,6 +4,7 @@ from states.startscreen import StartScreen
 from states.mainmenu import MainMenu
 from states.gameplay import GamePlay
 from states.pausemenu import PauseMenu
+from states.gameover import GameOver
 from game import Game
 
 # initialize pygame
@@ -24,7 +25,8 @@ states = {
     "START_SCREEN": StartScreen(),
     "MAIN_MENU": MainMenu(),
     "GAME_PLAY": GamePlay(),
-    "PAUSE_MENU": PauseMenu()
+    "PAUSE_MENU": PauseMenu(),
+    "GAME_OVER": GameOver()
 }
 
 # Run the game (the state machine)
@@ -32,4 +34,3 @@ game = Game(screen, states, "START_SCREEN")
 game.run() 
 pg.quit()
 sys.exit()
-
