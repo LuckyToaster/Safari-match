@@ -2,6 +2,7 @@ import random, time, sys, os, pygame as pg
 from pygame.locals import *
 from other import Dimmer, FPSCounter
 
+""" The Game Class"""
 class Game(object):
     def __init__(self, screen, states, start_state):
         self.done = False
@@ -43,6 +44,9 @@ class Game(object):
             self.draw()
             pg.display.update()
 
+
+""" The Base Class """
+# all other classes that are 'game states' will inherit from this class
 class BaseState(object):
     def __init__(self):
         self.done = False
@@ -104,6 +108,8 @@ class BaseState(object):
         if pg.MOUSEBUTTONDOWN: surface.blit(self.cursor_clicked,(x,y))
         else: surface.blit(self.cursor,(x,y)) 
 
+
+""" The StartScreen Class"""
 class StartScreen(BaseState):
     def __init__(self):
         super(StartScreen, self).__init__()
@@ -121,6 +127,8 @@ class StartScreen(BaseState):
         surface.blit(self.get_rand_bg(), (0,0))
         surface.blit(self.title, self.title_rect)
 
+
+""" The MainMenu Class"""
 class MainMenu(BaseState):
     def __init__(self):
         super(MainMenu, self).__init__()
@@ -167,6 +175,8 @@ class MainMenu(BaseState):
             text_render = self.render_options(index)
             surface.blit(text_render, self.get_text_position(text_render, index))
 
+
+""" The Pause Menu Class"""
 class PauseMenu(BaseState):
     def __init__(self):
         super(PauseMenu, self).__init__()
@@ -200,6 +210,8 @@ class PauseMenu(BaseState):
         surface.blit(self.instructions1,self.instructions1_rect)
         surface.blit(self.instructions2, self.instructions2_rect)
 
+
+""" The Game Over Class"""
 class GameOver(BaseState):
     def __init__(self):
         super(GameOver, self).__init__()
@@ -239,6 +251,8 @@ class GameOver(BaseState):
             text_render = self.render_options(index)
             surface.blit(text_render, self.get_text_position(text_render, index))
 
+
+""" The GamePlay Class"""
 class GamePlay(BaseState):
     def __init__(self):
         super(GamePlay, self).__init__()
@@ -271,7 +285,6 @@ class GamePlay(BaseState):
         for i, index in enumerate(name_deck):
             surface.blit(card_list[index],((self.screen_rect.center[0]/2)+x, self.screen_rect.center[1]))
             x = i*128
-    
 
     # the same index in cards and names refers to the same animal
     def get_card_list(self):
@@ -285,6 +298,9 @@ class GamePlay(BaseState):
         deck = []
         for i in range(4): deck.append(random.randrange(len(self.names)))
         return deck
+
+
+""" Executing the state machine """
 
 # initialize pygame
 pg.init()
@@ -312,3 +328,5 @@ states = {
 game = Game(screen, states, "START_SCREEN")
 game.run() 
 pg.quit()
+
+
